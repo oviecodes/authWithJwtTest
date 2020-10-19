@@ -18,7 +18,7 @@ const createUser = async(req, res) => {
                 res.json({ msg: 'user already exist' })
             } else {
                 const newUser = await User.create(req.body)
-                res.json('new user created proceed to login', newUser)
+                return res.status(200).json('new user created proceed to login', newUser)
             }
         }
     } catch (error) {
