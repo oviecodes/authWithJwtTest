@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 
 const isauth = async(req, res, next) => {
 
-    token = req.header('x-auth-token')
+    const token = req.header('x-auth-token')
     //no token
     if(!token) {
         return res.status(400).json({ msg: 'unauthorized' })

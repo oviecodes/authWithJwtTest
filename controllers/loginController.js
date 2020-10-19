@@ -21,7 +21,7 @@ const authUser = async(req, res) => {
         } else {
             const correctPassword = await user.validPassword(password)
             if(correctPassword) {
-                jwt.sign({ id: user.id }, process.env.JWTSECRET, { expiresIn: 360 }, (err, token) => {
+                jwt.sign({ id: user.id }, process.env.JWTSECRET, { expiresIn: 3600 }, (err, token) => {
                     if(err){
                        return res.status(400).json({ msg: 'an error occurred' })
                     } else {
